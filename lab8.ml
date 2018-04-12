@@ -148,7 +148,7 @@ listening for the event.
 ......................................................................*)
 
   let fire_event (evt : 'a event) (arg : 'a) : unit =
-    failwith "WEvent.fire_event not implemented"
+    ignore (List.iter (fun waiter -> waiter.action arg) !evt) ;;
 
 end
 
